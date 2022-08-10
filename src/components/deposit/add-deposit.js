@@ -46,14 +46,14 @@ import { SearchableSelect } from "../basicInputs";
 export const AddDeposit = (props) => {
   const { dispatch, state } = useContext(Store);
   const { customers, paymentType, loading, products } = state;
-  console.log(customers)
+  console.log(customers);
 
   const INITIAL_FORM_VALUES = {
     created_at: "",
     invoice_number: "",
     // amount_deposited: "",
     customer_name: "",
-    customer_id:"",
+    customer_id: "",
     branch: Cookies.get("selectedBranch"),
     payment_type: "",
     items: [
@@ -85,7 +85,7 @@ export const AddDeposit = (props) => {
     //   .required("please enter amount deposited"),
     // customer_phone: yup.string().required("please enter Cutomer Phone number"),
     customer_name: yup.string(),
-    customer_id:yup.string(),
+    customer_id: yup.string(),
     items: yup.array().of(
       yup.object().shape({
         // barcode: yup.string(),
@@ -189,7 +189,7 @@ export const AddDeposit = (props) => {
           />
         </Grid> */}
 
-       <Grid item xs={6}>
+        <Grid item xs={6}>
           <CustomTextField
             name={`items.${i}.product`}
             disabled
@@ -203,7 +203,7 @@ export const AddDeposit = (props) => {
             }
             // label="Product"
           />
-        </Grid> 
+        </Grid>
         <Grid item xs={6}>
           <SearchableSelect
             name={`items.${i}.selectedProduct`}
@@ -368,14 +368,14 @@ export const AddDeposit = (props) => {
                           useId={true} />
                       </Grid> */}
 
-                       <Grid item xs={4}>
-                       <SearchableSelect
-                       name="customer_id"
-                        useId={true}
-                        title="Choose a customer"
-                       options={customers}
+                      <Grid item xs={4}>
+                        <SearchableSelect
+                          name="customer_id"
+                          useId={true}
+                          title="Choose a customer"
+                          options={customers}
                           id="customers"
-                       />
+                        />
                       </Grid>
                       <FieldArray name="items">
                         {() =>
